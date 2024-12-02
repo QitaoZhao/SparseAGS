@@ -1,0 +1,6 @@
+[submodule "dust3r"]
+	path = dust3r
+	url = https://github.com/naver/dust3r.git
+[submodule "diff-gaussian-rasterization-camera"]
+	path = diff-gaussian-rasterization-camera
+	url = https://github.com/QitaoZhao/diff-gaussian-rasterization-camera.git
