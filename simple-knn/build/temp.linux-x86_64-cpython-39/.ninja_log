@@ -1,0 +1,16 @@
+# ninja log v5
+0	7669	1701014496279248184	/data2/qitaoz/dreamgaussian/simple-knn/build/temp.linux-x86_64-cpython-39/simple_knn.o	f0eb61fb048e6c0b
+0	13451	1701014502055383835	/data2/qitaoz/dreamgaussian/simple-knn/build/temp.linux-x86_64-cpython-39/ext.o	8dbe4a9c0369dd19
+0	33492	1701014522099854509	/data2/qitaoz/dreamgaussian/simple-knn/build/temp.linux-x86_64-cpython-39/spatial.o	e2c9b4caf2515fa
+15	7691	1704567365999754179	/data2/qitaoz/dreamgaussian/simple-knn/build/temp.linux-x86_64-cpython-39/simple_knn.o	62baef106cc68221
+15	13493	1704567371795888500	/data2/qitaoz/dreamgaussian/simple-knn/build/temp.linux-x86_64-cpython-39/ext.o	4577d7d378763f18
+15	33674	1704567391976356238	/data2/qitaoz/dreamgaussian/simple-knn/build/temp.linux-x86_64-cpython-39/spatial.o	29cfc2bc81d0c2c8
+35	7784	1705938680803855832	/data2/qitaoz/dreamgaussian/simple-knn/build/temp.linux-x86_64-cpython-39/simple_knn.o	82fd8b463c1769e0
+35	13450	1705938686460001309	/data2/qitaoz/dreamgaussian/simple-knn/build/temp.linux-x86_64-cpython-39/ext.o	bec2dfbbe8244ba9
+35	33570	1705938706588519017	/data2/qitaoz/dreamgaussian/simple-knn/build/temp.linux-x86_64-cpython-39/spatial.o	1bb471859e3f264e
+18	8283	1706506231725217888	/data2/qitaoz/dreamgaussian/simple-knn/build/temp.linux-x86_64-cpython-39/simple_knn.o	f345077bb08dcd86
+18	13441	1706506236877355952	/data2/qitaoz/dreamgaussian/simple-knn/build/temp.linux-x86_64-cpython-39/ext.o	be7492e7a65275b9
+19	34528	1706506257965921059	/data2/qitaoz/dreamgaussian/simple-knn/build/temp.linux-x86_64-cpython-39/spatial.o	5935de181acad318
+12	7376	1732661847786270012	/data2/qitaoz/sparseags/simple-knn/build/temp.linux-x86_64-cpython-39/simple_knn.o	22d2a0940540837c
+12	13655	1732661854058416929	/data2/qitaoz/sparseags/simple-knn/build/temp.linux-x86_64-cpython-39/ext.o	eaa8ae8e512e2bdc
+12	33751	1732661874158887755	/data2/qitaoz/sparseags/simple-knn/build/temp.linux-x86_64-cpython-39/spatial.o	48366f7a2b6951d7
