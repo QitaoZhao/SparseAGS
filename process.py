@@ -13,6 +13,8 @@ from torchvision import transforms
 from PIL import Image
 import rembg
 
+os.environ["OMP_NUM_THREADS"] = "10"
+
 
 class BLIP2():
     def __init__(self, device='cuda'):

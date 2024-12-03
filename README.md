@@ -72,11 +72,20 @@ Note: Look at this [issue](https://github.com/graphdeco-inria/gaussian-splatting
 
 3. Download our 6-DoF Zero123 [checkpoint](https://drive.google.com/file/d/1JJ4wjaJ4IkUERRZYRrlNoQ-tXvftEYJD/view?usp=sharing) and place it in `SparseAGS/checkpoints`.
 
+```bash
+mkdir checkpoints
+cd checkpoints/
+pip install gdown
+gdown "https://drive.google.com/uc?id=1JJ4wjaJ4IkUERRZYRrlNoQ-tXvftEYJD"
+cd ..
+```
+
 ## Usage
 
 (1) **Gradio Demo** (recommended, where you can upload your own images or use our preprocessed examples interactively):
 
 ```bash
+# first-time running may take a longer time
 python gradio_app.py
 ```
 
