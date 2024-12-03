@@ -22,7 +22,7 @@ This repository contains the official implementation for **Sparse-view Pose Esti
 
 ```bash
 git clone --recursive https://github.com/QitaoZhao/SparseAGS.git
-cd sparseags
+cd SparseAGS
 # if you have already cloned sparseags:
 # git submodule update --init --recursive
 ```
@@ -33,10 +33,22 @@ cd sparseags
 conda create -n sparseags python=3.9
 conda activate sparseags
 
+# enbale nvcc
+conda install -c conda-forge cudatoolkit-dev
+
+### torch, find you CUDA version by 'nvcc -V'
+# CUDA 11.7
+pip install torch==1.13.0+cu117 torchvision==0.14.0+cu117 torchaudio==0.13.0 --extra-index-url https://download.pytorch.org/whl/cu117
+
+pip install torch==2.1.0 torchvision==0.16.0 torchaudio==2.1.0 --index-url https://download.pytorch.org/whl/cu121
+
 pip install -r requirements.txt
 
-# pytorch3D
+### pytorch3D
+# CUDA 11.7
 conda install https://anaconda.org/pytorch3d/pytorch3d/0.7.5/download/linux-64/pytorch3d-0.7.5-py39_cu117_pyt1130.tar.bz2
+
+conda install https://anaconda.org/pytorch3d/pytorch3d/0.7.8/download/linux-64/pytorch3d-0.7.8-py39_cu121_pyt210.tar.bz2
 
 # liegroups (minor modification to https://github.com/utiasSTARS/liegroups)
 pip install ./liegroups
@@ -44,8 +56,7 @@ pip install ./liegroups
 # simple-knn
 pip install ./simple-knn
 
-# a modified gaussian splatting on top of https://github.com/ashawkey/diff-gaussian-rasterization, which enables camera pose optimization
-# Try "sudo apt-get install libglm-dev" if you encounter "fatal error: glm/glm.hpp: No such file or directory"
+# a modified gaussian splatting from https://github.com/ashawkey/diff-gaussian-rasterization, which enables camera pose optimization
 pip install ./diff-gaussian-rasterization-camera 
 
 ######################## Make it Submodule ########################
@@ -70,6 +81,8 @@ pip install torch==1.13.0+cu117 torchvision==0.14.0+cu117 torchaudio==0.13.0 --e
 Tested on:
 
 - Ubuntu 20.04 with torch 1.13 & CUDA 11.7 on an A5000 GPU.
+
+Note: Try `sudo apt-get install libglm-dev` if you encounter `fatal error: glm/glm.hpp: No such file or directory` when doing `pip install ./diff-gaussian-rasterization-camera`.
 
 ## Usage
 
