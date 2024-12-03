@@ -20,7 +20,7 @@ def info_fn():
 
 def get_select_index(evt: gr.SelectData):
 	index = evt.index
-	cate_list = ['robot', 'butter', 'jordan', 'eagle']
+	cate_list = ['toy', 'butter', 'robot', 'jordan', 'eagle']
 	args.num_views = len(examples_full[index][0])
 	args.category = cate_list[index]
 
@@ -125,7 +125,7 @@ if __name__ == "__main__":
 	# load images in 'data/demo' folder as examples
 	examples_full = []
 
-	for example in ['robot', 'butter', 'jordan', 'eagle']:
+	for example in ['toy', 'butter', 'robot', 'jordan', 'eagle']:
 		example_folder = os.path.join(os.path.dirname(__file__), 'data/demo', example, 'processed')
 		example_fns = os.listdir(example_folder)
 		example_fns.sort()
@@ -160,7 +160,7 @@ if __name__ == "__main__":
 
 				gallery = gr.Gallery(
 					value=[example[0][0] for example in examples_full], label="Examples", show_label=True, elem_id="gallery"
-				, columns=[4], rows=[1], object_fit="contain", height="256", preview=None, allow_preview=None)
+				, columns=[5], rows=[1], object_fit="contain", height="256", preview=None, allow_preview=None)
 
 				preprocessed_data = gr.Gallery(
  					label="Preprocessed images", show_label=True, elem_id="gallery"

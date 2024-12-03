@@ -58,7 +58,7 @@ pip install ./liegroups
 # simple-knn
 pip install ./simple-knn
 
-# a modified gaussian splatting from https://github.com/ashawkey/diff-gaussian-rasterization, which enables camera pose optimization
+# a modified gaussian splatting that enables camera pose optimization
 pip install ./diff-gaussian-rasterization-camera 
 ```
 
@@ -96,7 +96,7 @@ python process.py data
 ### sparse-view 3D reconstruction
 # here we have some preprocessed examples in 'data/demo', with dust3r pose initialization
 # the output will be saved in 'output/demo/{category}'
-# valid category-num_views options are {[jordan, 8], [butter, 6], [robot, 8], [eagle, 8]}
+# valid category-num_views options are {[toy, 4], [butter, 6], [jordan, 8], [robot, 8], [eagle, 8]}
 
 # run single 3D reconstruction (w/o outlier removal & correction)
 python run.py --category jordan --num_views 8 
@@ -127,6 +127,8 @@ azimuth: in (-180, 180), from +z to +x is (0, 90)
 ```
 
 ## Acknowledgments
+
+from https://github.com/ashawkey/diff-gaussian-rasterization
 
 This work is built on many amazing research works and open-source projects, thanks a lot to all the authors for sharing!
 
