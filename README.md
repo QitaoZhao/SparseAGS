@@ -33,7 +33,7 @@ cd SparseAGS
 conda create -n sparseags python=3.9
 conda activate sparseags
 
-# enbale nvcc
+# enable nvcc
 conda install -c conda-forge cudatoolkit-dev
 
 ### torch
@@ -60,24 +60,6 @@ pip install ./simple-knn
 
 # a modified gaussian splatting from https://github.com/ashawkey/diff-gaussian-rasterization, which enables camera pose optimization
 pip install ./diff-gaussian-rasterization-camera 
-
-######################## Make it Submodule ########################
-# dust3r
-git clone --recursive https://github.com/naver/dust3r
-
-# a modified gaussian splatting on top of https://github.com/ashawkey/diff-gaussian-rasterization, which enables camera pose optimization
-git clone --recursive git@github.com:QitaoZhao/diff-gaussian-rasterization-camera.git
-pip install ./diff-gaussian-rasterization-camera # Try "sudo apt-get install libglm-dev" if you encounter "fatal error: glm/glm.hpp: No such file or directory"
-
-######################## Remove ########################
-# nvdiffrast
-pip install git+https://github.com/NVlabs/nvdiffrast/
-
-# kiuikit
-pip install git+https://github.com/ashawkey/kiuikit
-
-# torch
-pip install torch==1.13.0+cu117 torchvision==0.14.0+cu117 torchaudio==0.13.0 --extra-index-url https://download.pytorch.org/whl/cu117
 ```
 
 Tested on:
