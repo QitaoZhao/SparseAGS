@@ -52,7 +52,7 @@ class Zero123(nn.Module):
         ).to(self.device)
 
         # load weights from the checkpoint
-        ckpt_path = "checkpoints/zero123_23k.ckpt"
+        ckpt_path = "checkpoints/zero123_6dof_23k.ckpt"
         print(f'[INFO] loading checkpoint from {ckpt_path} ...')
         old_state = torch.load(ckpt_path)
         pretrained_weights = old_state['state_dict']['cc_projection.weight']

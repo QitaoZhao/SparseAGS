@@ -16,8 +16,6 @@ import torch
 import torch.nn.functional as F
 import nvdiffrast.torch as dr
 
-import dearpygui.dearpygui as dpg
-
 from kiui.mesh import Mesh
 from kiui.cam import OrbitCamera
 from kiui.op import safe_normalize
@@ -58,15 +56,6 @@ class GUI:
 			self.glctx = dr.RasterizeGLContext()
 		else:
 			self.glctx = dr.RasterizeCudaContext()
-
-		if not self.wogui:
-			dpg.create_context()
-			self.register_dpg()
-			self.step()
-
-	def __del__(self):
-		if not self.wogui:
-			dpg.destroy_context()
 	
 	def step(self):
 
@@ -139,16 +128,6 @@ class GUI:
 		if self.auto_rotate_light:
 			self.light_dir[1] += 3
 			self.need_update = True
-		
-		if not self.wogui:
-			dpg.set_value("_log_infer_time", f'{t:.4f}ms ({int(1000/t)} FPS)')
-			dpg.set_value("_texture", self.render_buffer)
-
-	def render(self):
-		assert not self.wogui
-		while dpg.is_dearpygui_running():
-			self.step()
-			dpg.render_dearpygui_frame()
 
 
 def vis_output(camera_data, mesh_path=None, save_path=None, num_views=8):

@@ -10,7 +10,6 @@ import torch
 import torch.nn.functional as F
 import numpy as np
 import pandas as pd
-import dearpygui.dearpygui as dpg
 
 from kiui.lpips import LPIPS
 
@@ -76,15 +75,6 @@ class GUI:
             self.prompt = self.opt.prompt
         if self.opt.negative_prompt is not None:
             self.negative_prompt = self.opt.negative_prompt
-        
-        if self.gui:
-            dpg.create_context()
-            self.register_dpg()
-            self.test_step()
-
-    def __del__(self):
-        if self.gui:
-            dpg.destroy_context()
 
     def seed_everything(self):
         try:
@@ -320,13 +310,6 @@ class GUI:
         t = starter.elapsed_time(ender)
 
         self.need_update = True
-
-        if self.gui:
-            dpg.set_value("_log_train_time", f"{t:.4f}ms")
-            dpg.set_value(
-                "_log_train_log",
-                f"step = {self.step: 5d} (+{self.train_steps: 2d}) loss = {loss.item():.4f}",
-            )
     
     def load_input(self, camera_path, order_path=None):
         # load image
@@ -392,15 +375,6 @@ class GUI:
         self.renderer.export_mesh(path)
 
         print(f"[INFO] save model to {path}.")
-
-    def render(self):
-        assert self.gui
-        while dpg.is_dearpygui_running():
-            # update texture every frame
-            if self.training:
-                self.train_step()
-            self.test_step()
-            dpg.render_dearpygui_frame()
     
     # no gui mode
     def train(self, iters=500):
