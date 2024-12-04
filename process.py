@@ -1,15 +1,10 @@
 import os
 import glob
-import sys
 import cv2
 import argparse
 import numpy as np
-import matplotlib.pyplot as plt
 
 import torch
-import torch.nn as nn
-import torch.nn.functional as F
-from torchvision import transforms
 from PIL import Image
 import rembg
 

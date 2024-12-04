@@ -1,10 +1,7 @@
 import os
-import cv2
 import gc
 import copy
 import tqdm
-import torchvision
-import shutil
 import argparse
 import numpy as np
 from PIL import Image
@@ -23,7 +20,7 @@ sys.path.append('./')
 
 from sparseags.render_utils.gs_renderer import CustomCamera
 from sparseags.mesh_utils.mesh_renderer import Renderer
-from sparseags.cam_utils import OrbitCamera, mat2latlon
+from sparseags.cam_utils import mat2latlon
 
 
 def safe_normalize(x):

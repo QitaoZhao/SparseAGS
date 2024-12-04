@@ -2,10 +2,8 @@ import numpy as np
 from scipy.spatial.transform import Rotation as R
 
 # import ipdb
-import math
 import torch
-import torch.nn.functional as F
-from pytorch3d.transforms import Rotate, Translate
+from pytorch3d.transforms import Translate
 
 
 def intersect_skew_line_groups(p, r, mask):

@@ -1,11 +1,5 @@
 import os
-import re
-import cv2
-import csv
-import json
-import math
 import tqdm
-import shutil
 import argparse
 import numpy as np
 from PIL import Image
@@ -21,9 +15,8 @@ from kiui.cam import OrbitCamera
 from kiui.op import safe_normalize
 from kiui.lpips import LPIPS
 
-import sys 
 from sparseags.mesh_utils.mesh_renderer import Renderer
-from sparseags.cam_utils import orbit_camera, OrbitCamera
+from sparseags.cam_utils import OrbitCamera
 from sparseags.render_utils.gs_renderer import CustomCamera
 
 

@@ -2,10 +2,8 @@ import os
 import cv2
 import sys
 import json
-import time
 import tqdm
 import numpy as np
-import pandas as pd
 
 import torch
 import torch.nn.functional as F
@@ -19,7 +17,7 @@ sys.path.append('./')
 from sparseags.cam_utils import orbit_camera, OrbitCamera, mat2latlon, find_mask_center_and_translate
 from sparseags.render_utils.gs_renderer import Renderer, Camera, FoVCamera, CustomCamera
 from sparseags.mesh_utils.grid_put import mipmap_linear_grid_put_2d
-from sparseags.mesh_utils.mesh import Mesh, safe_normalize
+from sparseags.mesh_utils.mesh import safe_normalize
 
 
 class GUI:
