@@ -8,7 +8,6 @@ import numpy as np
 import sys 
 import torch
 
-from sparseags.mesh_utils.mesh_renderer import Renderer
 from sparseags.render_utils.util import render_and_compare, align_to_mesh
 from sparseags.visual_utils import vis_output
 

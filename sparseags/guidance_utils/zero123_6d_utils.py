@@ -2,15 +2,9 @@ from diffusers import DDIMScheduler
 import torchvision.transforms.functional as TF
 
 import numpy as np
-from PIL import Image
-import matplotlib.pyplot as plt
 import torch
 import torch.nn as nn
-import torchvision
-from torchvision.utils import save_image
-from torchvision import transforms
 import torch.nn.functional as F
-from einops import rearrange
 
 import sys
 sys.path.append('./')
@@ -340,50 +334,3 @@ class Zero123(nn.Module):
         latents = latents * self.vae.config.scaling_factor
 
         return latents
-
-
-def process_im(im):
-    if im.shape[-1] == 3:
-        if self.bg_remover is None:
-            self.bg_remover = rembg.new_session()
-        im = rembg.remove(im, session=self.bg_remover)
-
-    im = im.astype(np.float32) / 255.0
-
-    input_mask = im[..., 3:]
-    input_img = im[..., :3] * input_mask + (1 - input_mask)
-    input_img = input_img[..., ::-1].copy()
-    image = torch.from_numpy(input_img).permute(2, 0, 1).unsqueeze(0).contiguous().to(device)
-    image = F.interpolate(image, (256, 256), mode='bilinear', align_corners=False)
-
-    return image
-
-
-def get_T_6d(target_RT, cond_RT, use_objaverse):
-    if use_objaverse:
-        new_row = torch.tensor([[0., 0., 0., 1.]])
-
-        T_target = torch.from_numpy(target_RT) # world to cam matrix
-        T_target = torch.cat((T_target, new_row), dim=0)
-        T_target = torch.linalg.inv(T_target) # Cam to world matrix
-        T_target[:3, :] = T_target[[1, 2, 0]]
-
-        T_cond = torch.from_numpy(cond_RT)
-        T_cond = torch.cat((T_cond, new_row), dim=0)
-        T_cond = torch.linalg.inv(T_cond)
-        T_cond[:3, :] = T_cond[[1, 2, 0]]
-
-        focal_len = torch.tensor([1., 1.])
-
-    else:
-        T_target = torch.from_numpy(target_RT["c2w"])
-        focal_len_target = torch.from_numpy(target_RT["focal_length"])
-
-        T_cond = torch.from_numpy(cond_RT["c2w"])
-        focal_len_cond = torch.from_numpy(cond_RT["focal_length"])
-    
-        focal_len = focal_len_target / focal_len_cond
-
-    d_T = torch.linalg.inv(T_target) @ T_cond
-    d_T = torch.cat([d_T.flatten(), torch.log(focal_len)])
-    return d_T
