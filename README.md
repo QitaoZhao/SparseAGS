@@ -2,9 +2,11 @@
 
 This repository contains the official implementation for **Sparse-view Pose Estimation and Reconstruction via Analysis by Generative Synthesis**. The paper has been accepted to [NeurIPS 2024](https://neurips.cc/Conferences/2024).
 
-### [Project Page](https://qitaozhao.github.io/SparseAGS) | [arXiv (Coming Soon)](https://qitaozhao.github.io/SparseAGS)
+### [Project Page](https://qitaozhao.github.io/SparseAGS) | [arXiv](https://arxiv.org/abs/2412.03570)
 
 ### News
+
++ 2024.12.04: Add arXiv link.
 
 - 2024.12.02: Initial code release.
 
