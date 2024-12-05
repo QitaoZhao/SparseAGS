@@ -89,6 +89,15 @@ cd ..
 python gradio_app.py
 ```
 
+https://github.com/user-attachments/assets/30afac73-1603-417b-9890-4c6259802f57
+
+Set up the demo on your machine! You can run our model in two ways:
+
+(1) Upload Images: Upload your own images and click Preprocess Images to initialize poses using DUSt3R.
+Use a Preprocessed Example: Select one of the preprocessed examples below to skip the preprocessing step.
+Once the preprocessed images are displayed, click Run Single 3D Reconstruction. If the resulting 3D reconstruction appears inaccurate, use Outlier Removal & Correction to handle potential outlier camera pose(s) using our full method and improve the results. A video demonstration is provided below.
+
+
 (2) Use command lines:
 
 ```bash
