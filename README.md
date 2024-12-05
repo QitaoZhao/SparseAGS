@@ -115,28 +115,19 @@ Note: Actually, we include the `eagle` example to showcase how our full method w
 
 ## Tips
 
-* The world & camera coordinate system is the same as OpenGL:
-```
-    World            Camera        
-  
-     +y              up  target                                              
-     |               |  /                                            
-     |               | /                                                
-     |______+x       |/______right                                      
-    /                /         
-   /                /          
-  /                /           
- +z               forward           
+We might be using camera poses from too many coordinate system definitions:
 
-elevation: in (-90, 90), from +y to -y is (-90, 90)
-azimuth: in (-180, 180), from +z to +x is (0, 90)
-```
+- In `cameras.json` (for preprocessed examples and intermediate outputs), camera poses are stored using the **PyTorch3D** coordinate system.
+- Gaussian splatting uses the **OpenCV** coordinate system, as implemented in the `Camera`, `FoVCamera`, and `CustomCamera` classes in `sparseags/render_utils/gs_renderer.py`.
+- The `orbit_camera` function in `sparseags/cam_utils.py` is defined using the **OpenGL** coordinate system, following the conventions of [DreamGaussian](https://github.com/dreamgaussian/dreamgaussian).
+
+We believe we have taken care to handle the conversions between these systems accurately. For further understanding of the differences and conversions, we recommend this [nice blog](https://medium.com/red-buffer/mastering-3d-spaces-a-comprehensive-guide-to-coordinate-system-conversions-in-opencv-colmap-ef7a1b32f2df).
 
 ## Acknowledgments
 
-This project builds upon the amazing works of @ashawkey: Our 3D reconstruction pipeline is based on [DreamGaussian](https://arxiv.org/pdf/2309.16653) and [Stable-DreamFusion](https://github.com/ashawkey/stable-dreamfusion). We have implemented pose optimization for Gaussian splatting on top of [diff-gaussian-rasterization](https://github.com/ashawkey/diff-gaussian-rasterization). Huge thanks to @ashawkey for sharing these incredible works! Additionally, we fine-tuned and utilized the novel-view generative priors from [Zero123](https://arxiv.org/pdf/2303.11328). We also want to acknowledge and express our gratitude for the official Gaussian splatting implementations: [gaussian-splatting](https://github.com/graphdeco-inria/gaussian-splatting), [diff-gaussian-rasterization](https://github.com/graphdeco-inria/diff-gaussian-rasterization), and [simple-knn](https://gitlab.inria.fr/bkerbl/simple-knn). Furthermore, we greatly appreciate the contributions of [nvdiffrast](https://github.com/NVlabs/nvdiffrast), [DUSt3R](https://github.com/naver/dust3r), and [liegroups](https://github.com/utiasSTARS/liegroups). We sincerely thank the authors for their efforts in open-sourcing their code.
+This project builds upon the amazing works of @[ashawkey](https://github.com/ashawkey): Our 3D reconstruction pipeline is based on [DreamGaussian](https://github.com/dreamgaussian/dreamgaussian) and [Stable-DreamFusion](https://github.com/ashawkey/stable-dreamfusion). We have implemented pose optimization for Gaussian splatting on top of [diff-gaussian-rasterization](https://github.com/ashawkey/diff-gaussian-rasterization). Huge thanks to @[ashawkey](https://github.com/ashawkey) for sharing these incredible works! Additionally, we fine-tuned and utilized the novel-view generative priors from [Zero123](https://github.com/cvlab-columbia/zero123). We also want to acknowledge and express our gratitude for the official Gaussian splatting implementations: [gaussian-splatting](https://github.com/graphdeco-inria/gaussian-splatting), [diff-gaussian-rasterization](https://github.com/graphdeco-inria/diff-gaussian-rasterization), and [simple-knn](https://gitlab.inria.fr/bkerbl/simple-knn). Furthermore, we greatly appreciate the contributions of [nvdiffrast](https://github.com/NVlabs/nvdiffrast), [DUSt3R](https://github.com/naver/dust3r), and [liegroups](https://github.com/utiasSTARS/liegroups). We sincerely thank the authors for their efforts in open-sourcing their code.
 
-We thank Zihan Wang and the members of the Physical Perception Lab at CMU for their valuable discussions. We especially appreciate Amy Lin and Zhizhuo (Z) Zhou for their assistance in creating figures, as well as Yanbo Xu and Jason Zhang for their feedback on the draft. We also thank Hanwen Jiang for his support in setting up the LEAP baseline for comparison.
+We thank Zihan Wang and the members of the Physical Perception Lab at CMU for their valuable discussions. We especially appreciate Amy Lin and Zhizhuo (Z) Zhou for their assistance in creating figures, as well as Yanbo Xu and Jason Zhang for their feedback on the draft. We also thank Hanwen Jiang for his support in setting up the [LEAP](https://github.com/hwjiang1510/LEAP) baseline for comparison.
 
 This work was supported in part by NSF Award IIS-2345610. This work used Bridges-2 at Pittsburgh Supercomputing Center through allocation CIS240166 from the Advanced Cyberinfrastructure Coordination Ecosystem: Services & Support (ACCESS) program, which is supported by National Science Foundation grants #2138259, #2138286, #2138307, #2137603, and #2138296.
 
